@@ -1,12 +1,69 @@
-# React + Vite
+# MindMeld Documentation
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to the documentation for the MindMeld project. This project is a chatbot application built with React and Vite, powered by the Perplexity AI API.
 
-Currently, two official plugins are available:
+## Table of Contents
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+1. [Setup](setup.md)
+2. [Usage](usage.md)
+3. [Architecture](architecture.md)
+4. [API Reference](api.md)
 
-## Expanding the ESLint configuration
+# Setup
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Follow these steps to set up the MindMeld project:
+
+## Prerequisites
+
+- Node.js (v16 or later)
+- npm or yarn
+
+## Installation
+
+1. Clone the repository:
+
+   ```bash
+   git clone <repository-url>
+   cd mindmeld
+
+   ```
+
+2. npm install
+3. VITE_PERPLEXITY_API_KEY=your-api-key-here
+4. npm run dev
+
+## Key Components
+
+1. **App.jsx**: The main component that manages the theme and renders the chat interface.
+2. **ConversationWindow.jsx**: Displays the chat messages.
+3. **ChatInput.jsx**: Handles user input and actions.
+4. **ChatBubble.jsx**: Renders individual chat messages.
+
+## State Management
+
+The `useChat` custom hook manages the chat state, including messages, loading state, and error handling.
+
+# API Reference
+
+## Perplexity AI API
+
+The application uses the Perplexity AI API for generating chat responses.
+
+### Endpoint
+
+`POST https://api.perplexity.ai/chat/completions`
+
+### Request Body
+
+```json
+{
+  "model": "sonar",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Your question here"
+    }
+  ],
+  "max_tokens": 2000
+}
+```
